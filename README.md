@@ -2,10 +2,25 @@
 
 Windows Forms 桌面应用，使用 .NET Framework 4.8 和本机 qpdf。双击 **PdfSplitter.exe** 即可使用，全部处理在本机完成。
 
+## 下载使用
+
+在 [Releases](../../releases) 页面下载最新版本。每个版本提供两种压缩包：
+
+| 压缩包 | 内容 | 适合 |
+| --- | --- | --- |
+| `PdfSplitter-v版本号-win-with-qpdf.zip` | 程序 + qpdf 12.4.2，解压即用 | 大多数用户 |
+| `PdfSplitter-v版本号-win.zip` | 仅程序 | 已安装 qpdf，或希望自行管理 qpdf 版本 |
+
+解压后双击 `PdfSplitter.exe`。请保持压缩包内文件放在同一文件夹：`PdfSplitter.exe.config` 提供长路径支持，`qpdf.exe` 及其 DLL 需与程序位于同一目录才会被优先使用。
+
+- 程序未进行数字签名，首次运行时 Windows SmartScreen 可能提示“Windows 已保护你的电脑”，点击“更多信息 → 仍要运行”即可。
+- 每个 Release 附有压缩包的 SHA256 校验值，可用 `Get-FileHash .\压缩包.zip` 核对。
+- 含 qpdf 的压缩包中附有 `THIRD-PARTY-NOTICES.txt` 和 `licenses\` 文件夹，列出 qpdf 及其依赖库的版权与许可证。
+
 ## 环境要求
 
 - Windows 10/11，已安装 .NET Framework 4.8（系统通常自带）。构建使用系统自带的 `csc.exe`，无需安装 Visual Studio。
-- [qpdf](https://github.com/qpdf/qpdf/releases)。可通过 `choco install qpdf` 安装，或将 `qpdf.exe` 放入 PATH、设置环境变量 `QPDF_EXECUTABLE`，也可在程序“设置”中手动选择。
+- [qpdf](https://github.com/qpdf/qpdf/releases)。含 qpdf 的压缩包已自带；否则可通过 `choco install qpdf` 安装，或将 `qpdf.exe` 放入 PATH、设置环境变量 `QPDF_EXECUTABLE`，也可在程序“设置”中手动选择。
 - 仅运行测试时需要 Python 3 及 `reportlab`、`pypdf`。
 
 ## 使用方法
@@ -218,4 +233,4 @@ foreach ($t in 'OverwriteConfirmationTest', 'SettingsAndLayoutTest', 'HomePageTe
 
 ## 许可证
 
-本项目以 [MIT 许可证](LICENSE) 发布。qpdf 是独立安装的第三方程序，遵循其自身的许可证（Apache 2.0）。
+本项目以 [MIT 许可证](LICENSE) 发布。qpdf 是第三方程序，遵循其自身的许可证（Apache 2.0）；含 qpdf 的压缩包原样附带官方 Windows 版 qpdf 及其依赖库，各组件的许可证见包内 `THIRD-PARTY-NOTICES.txt`。
