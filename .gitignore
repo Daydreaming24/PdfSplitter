@@ -1,0 +1,22 @@
+# 编译产物（主程序与测试程序）
+*.exe
+
+# 本地设置
+/settings.xml
+
+# 测试环境与产物
+/tests/.venv/
+/tests/qa-output/
+/tests/__pycache__/
+/tests/cancel-*/
+/tests/output-*/
+/tests/policy-*/
+
+# 个人文件：PDF 与截图不应进入版本库
+*.pdf
+/*.png
+
+# 编辑器与工具的本地配置
+.vs/
+.vscode/
+.claude/
